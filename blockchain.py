@@ -22,7 +22,7 @@ class Block():
         # Set timestamp to POSIX epoch.
         self._timestamp = datetime.datetime.utcfromtimestamp(0)
 
-    def serialize(self):
+    def _serialize(self):
         return repr([self.data,
                      self._timestamp,
                      self._prev_block_hash,
@@ -32,7 +32,7 @@ class Block():
         if standardized:
             self._standardize_block()
 
-        serialization = self.serialize()
+        serialization = self._serialize()
         self._hash = int(hashlib.sha256(serialization).hexdigest(), 16)
 
     @property
