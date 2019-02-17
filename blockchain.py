@@ -15,7 +15,7 @@ class Block():
     
     def _standardize_block(self):
         """
-        Make sure this block is reproducible.
+        Make sure this block generates reproducible hashes.
         
         Standardizes timestamp. This is useful for unit tests.
         """
