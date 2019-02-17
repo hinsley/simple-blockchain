@@ -8,6 +8,7 @@ class Block():
         self._data = data
         self._timestamp = datetime.datetime.now()
         self._prev_block_hash = prev_block_hash
+        self.nonce = 0
 
         # This always needs to be the last statement in this method.
         self.set_hash()
@@ -24,7 +25,8 @@ class Block():
     def serialize(self):
         return repr([self.data,
                      self._timestamp,
-                     self._prev_block_hash]).encode()
+                     self._prev_block_hash,
+                     self.nonce]).encode()
 
     def set_hash(self, standardized=False):
         if standardized:
